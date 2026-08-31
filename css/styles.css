@@ -168,12 +168,10 @@ h3 { font-size: 1.5rem; }
 .section-platinum { background: var(--hero-bg); color: var(--text-dark); }
 .section-why { background: var(--why-bg); color: var(--text-light); }
 
-.section-lead { max-width: 760px; margin-bottom: 2.5rem; }
+.section-lead { max-width: 760px; margin-bottom: 2.5rem; color: var(--text-grey); }
 .section-dark .section-lead,
 .section-black .section-lead,
-.section-why .section-lead { color: var(--text-light-soft); }
-.section-offwhite .section-lead,
-.section .section-lead { color: var(--text-grey); }
+.section-why .section-lead { color: #ffffff; }
 
 .text-center { text-align: center; }
 .text-center .section-lead { margin-inline: auto; }
