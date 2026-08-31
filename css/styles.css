@@ -236,17 +236,12 @@ h3 { font-size: 1.5rem; }
 .card h3 { margin-block: 1.2rem 0.7rem; }
 .card p { color: var(--text-grey); font-size: 0.95rem; }
 
-.card-icon {
-  width: 58px;
-  height: 58px;
-  margin-inline: auto;
-  border-radius: 50%;
-  background: var(--accent);
-  color: #fff;
-  display: grid;
-  place-items: center;
+.card-img {
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto 0.5rem;
 }
-.card-icon svg { width: 30px; height: 30px; }
+.card-img img { width: 100%; height: auto; }
 
 /* ---------- Feuille de route ---------- */
 .roadmap {
