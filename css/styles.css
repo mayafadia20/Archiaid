@@ -226,13 +226,9 @@ h3 { font-size: 1.5rem; }
 .card-grid.four { grid-template-columns: repeat(4, 1fr); }
 
 .card {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 6px;
-  padding: 2.2rem 1.8rem;
+  padding: 1rem 0.5rem;
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.card:hover { transform: translateY(-5px); box-shadow: 0 14px 34px rgba(0, 0, 0, 0.1); }
 .card h3 { margin-block: 1.2rem 0.7rem; }
 .card p { color: var(--text-grey); font-size: 0.95rem; }
 
