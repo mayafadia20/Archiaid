@@ -62,14 +62,28 @@ if (modalOverlay) {
     });
   });
 
-  // Pas encore de serveur d'authentification : on affiche un message de confirmation
+  // Connexion côté client : on enregistre l'utilisateur dans le navigateur
+  // puis on le redirige vers la page des outils (pas de serveur d'authentification).
   forms.forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      var nameInput = form.querySelector('input[name="name"]');
+      var emailInput = form.querySelector('input[name="email"]');
+      try {
+        localStorage.setItem('archiaid_user', JSON.stringify({
+          nom: nameInput ? nameInput.value.trim() : '',
+          courriel: emailInput ? emailInput.value.trim() : '',
+          depuis: new Date().toISOString()
+        }));
+      } catch (err) {}
       var note = form.querySelector('.form-note');
       if (note) {
         note.textContent = note.getAttribute('data-success');
         note.classList.add('success');
+      }
+      var destination = modalOverlay.getAttribute('data-redirect');
+      if (destination) {
+        setTimeout(function () { window.location.href = destination; }, 600);
       }
     });
   });

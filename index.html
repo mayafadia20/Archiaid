@@ -326,7 +326,7 @@
   </footer>
 
   <!-- ===== Modale Connexion / Création de compte ===== -->
-  <div class="modal-overlay" id="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
+  <div class="modal-overlay" id="auth-modal" data-redirect="outils/index.html" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
     <div class="modal">
       <div class="modal-header">
         <h3 id="auth-modal-title">Tools</h3>
@@ -346,7 +346,7 @@
           <input type="password" id="login-password" name="password" autocomplete="current-password" required>
         </div>
         <button type="submit" class="btn">Log In</button>
-        <p class="form-note" data-success="Thank you! Client tools are coming soon.">Access your Archi Aid client tools.</p>
+        <p class="form-note" data-success="Logged in — taking you to your tools…">Access your Archi Aid client tools.</p>
       </form>
       <form class="modal-form" id="signup-form">
         <div class="form-field">
@@ -362,7 +362,7 @@
           <input type="password" id="signup-password" name="password" autocomplete="new-password" minlength="8" required>
         </div>
         <button type="submit" class="btn">Create Account</button>
-        <p class="form-note" data-success="Thank you! Your request has been noted — client tools are coming soon.">Create your account to access Archi Aid tools.</p>
+        <p class="form-note" data-success="Account created — taking you to your tools…">Create your account to access Archi Aid tools.</p>
       </form>
     </div>
   </div>
