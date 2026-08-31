@@ -142,7 +142,8 @@ h3 { font-size: 1.5rem; }
 
 .hero-inner {
   padding-block: clamp(4.5rem, 10vw, 8rem);
-  max-width: 900px;
+  max-width: 980px;
+  margin-inline: 0; /* aligné à gauche, comme l'original */
 }
 
 .hero h1 {
