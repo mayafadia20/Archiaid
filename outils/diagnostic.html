@@ -423,7 +423,7 @@ function ecranEnonce(){
     el.onclick = () => {
       etat.reponses[c.cle] = parseInt(el.dataset.note, 10);
       if(etat.index < 11){ etat.index++; ecranEnonce(); }
-      else { calculer(); ecranGate(); }
+      else { calculer(); finaliser(); }
     };
   });
 
@@ -490,6 +490,30 @@ function detailReponses(){
 /* ==========================================================================
    8. GATE ET ENVOI HUBSPOT
    ========================================================================== */
+/* L'utilisateur s'est déjà identifié à la connexion au site : on saute
+   l'écran de coordonnées et on envoie le résultat à HubSpot avec les
+   informations du compte, sans bloquer l'affichage des résultats. */
+function finaliser(){
+  progression(100, "Terminé");
+  let contact = { prenom:"", nom:"", entreprise:"", courriel:"" };
+  try {
+    const u = JSON.parse(localStorage.getItem("archiaid_user") || "null");
+    if(u){
+      const morceaux = (u.nom || "").trim().split(/\s+/).filter(Boolean);
+      contact.prenom = morceaux.shift() || "";
+      contact.nom = morceaux.join(" ") || contact.prenom;
+      contact.courriel = (u.courriel || "").trim();
+    }
+  } catch(e){}
+  if(contact.courriel){
+    envoyerHubSpot(contact).catch(e => {
+      etat.envoiEchoue = true;
+      console.error("Envoi HubSpot échoué :", e);
+    });
+  }
+  ecranResultats();
+}
+
 function ecranGate(){
   progression(100, "Terminé");
   scene.innerHTML = `
