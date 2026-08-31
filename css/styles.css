@@ -38,9 +38,17 @@ body {
 img, svg { max-width: 100%; display: block; }
 a { color: inherit; }
 
+/* Comme l'original : conteneur pleine largeur, 70 px de marge latérale */
 .container {
-  width: min(1200px, 90%);
+  width: 100%;
+  padding-inline: 70px;
   margin-inline: auto;
+}
+@media (max-width: 960px) {
+  .container { padding-inline: 32px; }
+}
+@media (max-width: 680px) {
+  .container { padding-inline: 20px; }
 }
 
 h1, h2, h3 {
