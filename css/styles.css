@@ -302,7 +302,7 @@ h3 { font-size: 1.5rem; }
 
 .card-img {
   width: 100%;
-  max-width: 340px;
+  max-width: min(100%, 520px);
   margin: 0 auto 0.5rem;
 }
 .card-img img {
