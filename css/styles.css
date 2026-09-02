@@ -400,23 +400,23 @@ h3 { font-size: 1.5rem; }
   .roadmap-step + .roadmap-step::before { display: none; }
 }
 
-/* ---------- Clients ---------- */
-.client-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  margin-top: 2.5rem;
-  align-items: center;
+/* ---------- Clients (carrousel défilant) ---------- */
+#clients {
+  justify-content: flex-start;
+  padding-top: clamp(1.5rem, 5vh, 3rem);
 }
-.client-grid img {
-  max-height: 130px;
+.marquee-clients .marquee-track {
+  gap: 6.5rem;
+  animation-duration: 34s;
+}
+.marquee-clients .marquee-track img {
+  height: clamp(140px, 24vh, 230px);
   width: auto;
-  margin-inline: auto;
-  filter: grayscale(1);
-  opacity: 0.75;
-  transition: filter 0.2s ease, opacity 0.2s ease;
 }
-.client-grid img:hover { filter: none; opacity: 1; }
+@media (max-width: 680px) {
+  .marquee-clients .marquee-track { gap: 3.5rem; }
+  .marquee-clients .marquee-track img { height: 110px; }
+}
 
 /* ---------- Témoignages ---------- */
 .testimonial {
