@@ -293,12 +293,30 @@ h3 { font-size: 1.5rem; }
 .card h3 { margin-block: 1.2rem 0.7rem; }
 .card p { color: var(--text-grey); font-size: 0.95rem; }
 
+/* Le titre de Nos Services reste en haut de la section plein écran */
+#services {
+  justify-content: flex-start;
+  padding-top: clamp(1.5rem, 5vh, 3rem);
+}
+#services .card-grid { margin-top: clamp(2.5rem, 9vh, 6rem); }
+
 .card-img {
   width: 100%;
   max-width: 340px;
   margin: 0 auto 0.5rem;
 }
-.card-img img { width: 100%; height: auto; }
+.card-img img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.card-img img:hover { transform: scale(1.05); }
+.card-img img.tourne { animation: tourner 0.9s cubic-bezier(0.3, 0, 0.2, 1); }
+@keyframes tourner {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
 /* ---------- Feuille de route ---------- */
 .roadmap {

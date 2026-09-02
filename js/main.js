@@ -89,6 +89,17 @@ if (modalOverlay) {
   });
 }
 
+// Les infographies de services tournent sur elles-mêmes au clic
+document.querySelectorAll('.card-img img').forEach(function (img) {
+  img.addEventListener('click', function () {
+    if (img.classList.contains('tourne')) return;
+    img.classList.add('tourne');
+  });
+  img.addEventListener('animationend', function () {
+    img.classList.remove('tourne');
+  });
+});
+
 // Scroll-reveal for sections and cards
 var revealTargets = document.querySelectorAll(
   '.section h2, .card, .pillar, .testimonial, .roadmap-step, .stat-card'
