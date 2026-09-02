@@ -194,23 +194,46 @@ h3 { font-size: 1.5rem; }
 .text-center { text-align: center; }
 .text-center .section-lead { margin-inline: auto; }
 
-/* ---------- Qui sommes-nous (image bannière pleine largeur, texte en dessous) ---------- */
+/* ---------- Qui sommes-nous : bannière plein écran, texte sur dégradé ---------- */
 .about-section {
+  position: relative;
+  height: calc(100vh - 88px); /* visible en entier sous l'en-tête, sans défiler */
+  min-height: 480px;
+  overflow: hidden;
   background: var(--dark);
   color: var(--text-light);
 }
 .about-banner {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
-.about-text {
-  max-width: 1000px;
-  margin-inline: auto;
-  padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 3rem);
+/* Léger dégradé noir au bas de l'image */
+.about-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.45) 25%,
+    rgba(0, 0, 0, 0) 55%);
+  pointer-events: none;
 }
-.about-text h2 { margin-bottom: 1.5rem; }
-.about-text p { color: #ffffff; font-size: 1.02rem; margin-bottom: 1rem; }
+.about-text {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  max-width: 640px;
+  padding: 0 clamp(1.5rem, 4vw, 4.5rem) clamp(1.8rem, 4vw, 3.2rem);
+}
+.about-text h2 { margin-bottom: 1rem; color: #ffffff; }
+.about-text p { color: #ffffff; font-size: 0.98rem; margin-bottom: 0; }
+@media (max-width: 680px) {
+  .about-section { height: 78vh; min-height: 420px; }
+  .about-text p { font-size: 0.88rem; }
+}
 
 /* ---------- Bandeau logos plateformes (défilement continu) ---------- */
 .marquee {
