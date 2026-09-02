@@ -150,14 +150,17 @@ h3 { font-size: 1.5rem; }
   background: var(--text-dark);
 }
 
-/* ---------- Hero (fond blanc, texte noir centré) ---------- */
+/* ---------- Hero (plein écran, fond blanc, texte noir centré) ---------- */
 .hero {
   background: #ffffff;
   color: var(--text-dark);
+  min-height: calc(100vh - 88px); /* toute la fenêtre sous l'en-tête */
+  display: flex;
+  align-items: center;
 }
 
 .hero-inner {
-  padding-block: clamp(4.5rem, 10vw, 8rem);
+  padding-block: 3rem;
   max-width: 980px;
   margin-inline: auto;
   text-align: center;
