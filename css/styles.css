@@ -249,7 +249,7 @@ h3 { font-size: 1.5rem; }
 /* ---------- Bandeau logos plateformes (défilement continu) ---------- */
 .marquee {
   overflow: hidden;
-  margin-top: 2.5rem;
+  margin-top: clamp(4rem, 12vh, 8rem);
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
