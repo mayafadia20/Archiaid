@@ -238,8 +238,14 @@ h3 { font-size: 1.5rem; }
   .about-text p { font-size: 0.88rem; }
 }
 
-/* ---------- Notre Expertise : section plein écran ---------- */
-#expertise {
+/* ---------- Sections plein écran : chacune occupe la fenêtre entière ---------- */
+#expertise,
+#services,
+#roadmap,
+#clients,
+#testimonials,
+#highlights,
+#why-us {
   min-height: calc(100vh - 88px);
   display: flex;
   flex-direction: column;
