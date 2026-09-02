@@ -318,30 +318,87 @@ h3 { font-size: 1.5rem; }
   to { transform: rotate(360deg); }
 }
 
-/* ---------- Feuille de route ---------- */
+/* ---------- Feuille de route (bande fléchée blanche, comme l'original) ---------- */
 .roadmap {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.8rem;
-  margin-top: 2.5rem;
+  gap: 2.5rem;
+  margin-top: 3.5rem;
+  position: relative;
 }
-.roadmap-step {
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 6px;
-  padding: 1.9rem 1.5rem;
-  background: rgba(255, 255, 255, 0.03);
+/* La bande blanche en flèche qui traverse tout l'écran */
+.roadmap::before {
+  content: "";
+  position: absolute;
+  top: 48px;
+  transform: translateY(-50%);
+  left: -70px;   /* déborde du conteneur jusqu'aux bords de l'écran */
+  right: -70px;
+  height: 54px;
+  background: #ffffff;
+  clip-path: polygon(0 0, calc(100% - 48px) 0, 100% 50%, calc(100% - 48px) 100%, 0 100%);
 }
-.step-number {
-  font-family: var(--font-heading);
-  font-size: 2.6rem;
-  color: var(--text-light);
-  opacity: 0.35;
-  display: block;
-  margin-bottom: 0.6rem;
+.roadmap-step { position: relative; text-align: center; }
+/* Chevrons noirs sur la bande, entre les étapes */
+.roadmap-step + .roadmap-step::before {
+  content: "❯❯❯";
+  position: absolute;
+  top: 48px;
+  left: -1.25rem;
+  transform: translate(-50%, -50%);
+  color: var(--darker);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  z-index: 1;
 }
-.roadmap-step h3 { margin-bottom: 0.6rem; }
-.roadmap-step p { font-size: 0.92rem; color: var(--text-light-soft); }
+.step-icon {
+  position: relative;
+  z-index: 1;
+  width: 96px;
+  height: 96px;
+  margin-inline: auto;
+  border-radius: 50%;
+  background: #4d4d4d;
+  border: 4px solid #6e6e6e;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+}
+.step-icon svg { width: 42px; height: 42px; }
+/* La pointe sous le cercle, vers l'étiquette */
+.step-icon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -16px;
+  transform: translateX(-50%);
+  border: 10px solid transparent;
+  border-top-color: #4d4d4d;
+}
+.step-label {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--accent);
+  padding: 0.55rem 1.5rem;
+  margin-top: 1.9rem;
+}
+.roadmap-step p {
+  text-align: left;
+  font-size: 0.92rem;
+  color: #ffffff;
+  margin-top: 1rem;
+  max-width: 240px;
+  margin-inline: auto;
+}
+@media (max-width: 960px) {
+  .roadmap::before,
+  .roadmap-step + .roadmap-step::before { display: none; }
+}
 
 /* ---------- Clients ---------- */
 .client-grid {
