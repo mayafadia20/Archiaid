@@ -83,17 +83,20 @@ h3 { font-size: 1.5rem; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--hero-bg);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  background: #ffffff;
 }
 
+/* Logo à gauche, menu centré */
 .header-inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   padding-block: 0.8rem;
   gap: 1rem;
 }
+.header-inner .logo { justify-self: start; }
+.header-inner .main-nav { justify-self: center; }
+.header-inner .nav-toggle { justify-self: end; }
 
 .logo { display: block; }
 .logo img { height: 56px; width: auto; }
@@ -134,16 +137,17 @@ h3 { font-size: 1.5rem; }
   background: var(--text-dark);
 }
 
-/* ---------- Hero (fond platine, texte noir, comme l'original) ---------- */
+/* ---------- Hero (fond blanc, texte noir centré) ---------- */
 .hero {
-  background: var(--hero-bg);
+  background: #ffffff;
   color: var(--text-dark);
 }
 
 .hero-inner {
   padding-block: clamp(4.5rem, 10vw, 8rem);
   max-width: 980px;
-  margin-inline: 0; /* aligné à gauche, comme l'original */
+  margin-inline: auto;
+  text-align: center;
 }
 
 .hero h1 {
@@ -157,6 +161,7 @@ h3 { font-size: 1.5rem; }
   font-size: 1.05rem;
   color: var(--text-grey);
   max-width: 640px;
+  margin-inline: auto;
   margin-bottom: 2.4rem;
 }
 
@@ -522,7 +527,7 @@ body.modal-locked { overflow: hidden; }
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--hero-bg);
+    background: #ffffff;
     flex-direction: column;
     align-items: flex-start;
     padding: 1.2rem 5%;
