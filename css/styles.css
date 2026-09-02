@@ -262,14 +262,18 @@ h3 { font-size: 1.5rem; }
 .marquee-track {
   display: flex;
   align-items: center;
-  gap: 3.5rem;
+  gap: 5rem;
   width: max-content;
   animation: marquee 40s linear infinite;
 }
 .marquee-track img {
-  height: 74px;
+  height: clamp(120px, 20vh, 190px);
   width: auto;
   flex-shrink: 0;
+}
+@media (max-width: 680px) {
+  .marquee-track { gap: 3rem; }
+  .marquee-track img { height: 90px; }
 }
 @keyframes marquee {
   from { transform: translateX(0); }
